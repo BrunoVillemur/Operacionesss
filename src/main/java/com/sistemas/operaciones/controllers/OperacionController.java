@@ -32,13 +32,13 @@ public class OperacionController {
 		
 		String resultado = Float.toString(a + b);
 		
-		return clienteRest.getForObject("https://resultadosseuro.herokuapp.com//resultado/" + resultado, String.class);
+		return clienteRest.getForObject("https://resultadosseuro.herokuapp.com/resultado/" + resultado, String.class);
 	}
 	
 	@GetMapping("/restar-eu")
 	public String restarEu(@RequestParam float a, @RequestParam float b) {
 		String resultado = Float.toString(a - b);
 		
-		return clienteRest.getForObject("https://resultadosseuro.herokuapp.com//resultado/" + resultado, String.class);
+		return clienteRest.getForObject("https://resultadosseuro.herokuapp.com/resultado/" + resultado, String.class);
 	}
 }
