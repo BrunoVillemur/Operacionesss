@@ -17,14 +17,14 @@ public class OperacionController {
 		
 		String resultado = Float.toString(a + b);
 		
-		return clienteRest.getForObject("https://resultadosss.herokuapp.com/resultado/" + resultado, String.class);
+		return clienteRest.getForObject("https://resultadosus.herokuapp.com/resultado/" + resultado, String.class);
 	}
 	
 	@GetMapping("/restar-usa")
 	public String restarUsa(@RequestParam float a, @RequestParam float b) {
 		String resultado = Float.toString(a - b);
 		
-		return clienteRest.getForObject("https://resultadosss.herokuapp.com/resultado/" + resultado, String.class);
+		return clienteRest.getForObject("https://resultadosus.herokuapp.com/resultado/" + resultado, String.class);
 	}
 	
 	@GetMapping("/sumar-eu")
