@@ -12,18 +12,33 @@ public class OperacionController {
 	@Autowired
 	private RestTemplate clienteRest;
 	
-	@GetMapping("/sumar")
-	public String sumar(@RequestParam float a, @RequestParam float b) {
+	@GetMapping("/sumar-usa")
+	public String sumarUsa(@RequestParam float a, @RequestParam float b) {
 		
 		String resultado = Float.toString(a + b);
 		
 		return clienteRest.getForObject("https://resultadoss.herokuapp.com/resultado/" + resultado, String.class);
 	}
 	
-	@GetMapping("/restar")
-	public String restar(@RequestParam float a, @RequestParam float b) {
+	@GetMapping("/restar-usa")
+	public String restarUsa(@RequestParam float a, @RequestParam float b) {
 		String resultado = Float.toString(a - b);
 		
 		return clienteRest.getForObject("https://resultadoss.herokuapp.com/resultado/" + resultado, String.class);
+	}
+	
+	@GetMapping("/sumar-eu")
+	public String sumarEu(@RequestParam float a, @RequestParam float b) {
+		
+		String resultado = Float.toString(a + b);
+		
+		return clienteRest.getForObject("https://resultadosseuro.herokuapp.com//resultado/" + resultado, String.class);
+	}
+	
+	@GetMapping("/restar-eu")
+	public String restarEu(@RequestParam float a, @RequestParam float b) {
+		String resultado = Float.toString(a - b);
+		
+		return clienteRest.getForObject("https://resultadosseuro.herokuapp.com//resultado/" + resultado, String.class);
 	}
 }
